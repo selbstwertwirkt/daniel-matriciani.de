@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Schreib Daniel Matriciani eine direkte Nachricht. Kein Formular, das im CRM landet – echte Kommunikation." />
+  <title>Kontakt – Daniel Matriciani</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* ============================================================
+       KONTAKT PAGE
+    ============================================================ */
+    .section-contact-main {
+      background: var(--color-bg);
+      padding: var(--section-pad) 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    /* Left: text + info */
+    .contact-info h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--color-primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-info-lead {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-size: 1.0625rem;
+    }
+
+    .contact-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-direct-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 16px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.2s ease;
+    }
+
+    .contact-direct-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      text-decoration: none;
+      color: var(--color-primary);
+    }
+
+    .contact-direct-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .contact-direct-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      display: block;
+    }
+
+    .contact-direct-value {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--color-primary);
+    }
+
+    /* Photo */
+    .contact-photo {
+      margin-top: 2.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-photo img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Right: form */
+    .contact-form-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-heading {
+      font-size: 1.375rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-sub {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid rgba(37,75,90,0.18);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      background: var(--color-bg);
+      transition: border-color 0.2s ease;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background: #fff;
+    }
+
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      font-size: 0.8125rem;
+      color: var(--color-text-light);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* FAQ */
+    .section-faq {
+      background: var(--color-surface);
+      padding: var(--section-pad) 0;
+    }
+
+    .faq-h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .faq-list {
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-q {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-a {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 480px) {
+      .contact-form-wrap { padding: 28px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Daniel Matriciani – Startseite">
+        <img src="/images/logo.png" alt="Daniel Matriciani" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Start</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/ueber-mich/" class="nav-link">Über mich</a>
+        <a href="/kontakt/" class="nav-cta-link active">→ Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-tag">Kein Formular-Friedhof</span>
+        <h1 class="page-hero-h1">Schreib mir.</h1>
+        <p class="page-hero-sub">
+          Direkt. Unkompliziert. Ich lese jede Nachricht selbst und antworte persönlich.
+        </p>
+      </div>
+    </section>
+
+    <!-- KONTAKT HAUPT -->
+    <section class="section-contact-main" aria-labelledby="contact-main-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Info -->
+          <div class="contact-info fade-in">
+            <h2 id="contact-main-heading">Wie du mich erreichst.</h2>
+            <p class="contact-info-lead">
+              Kein Verkaufsgespräch. Kein Pitch. Wenn du weißt, dass du nicht mehr weiterkommst – oder einfach eine ehrliche Meinung zu deiner Situation willst – schreib mir.
+            </p>
+
+            <div class="contact-direct">
+              <a href="mailto:kontakt@daniel-matriciani.de" class="contact-direct-item">
+                <span class="contact-direct-icon" aria-hidden="true">✉️</span>
+                <div>
+                  <span class="contact-direct-label">E-Mail</span>
+                  <span class="contact-direct-value">kontakt@daniel-matriciani.de</span>
+                </div>
+              </a>
+              <a href="https://www.instagram.com/selbstwertwirkt/" target="_blank" rel="noopener noreferrer" class="contact-direct-item">
+                <span class="contact-direct-icon" aria-hidden="true">📸</span>
+                <div>
+                  <span class="contact-direct-label">Instagram</span>
+                  <span class="contact-direct-value">@selbstwertwirkt</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="contact-photo">
+              <img src="/images/daniel-about.jpg" alt="Daniel Matriciani" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="contact-form-wrap fade-in">
+            <h2 class="form-heading">Direkte Nachricht</h2>
+            <p class="form-sub">Ich antworte innerhalb von 48 Stunden. Versprochen.</p>
+
+            <form action="mailto:kontakt@daniel-matriciani.de" method="post" enctype="text/plain" aria-label="Kontaktformular">
+
+              <div class="form-group">
+                <label for="name" class="form-label">Dein Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Wie heißt du?"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Deine E-Mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="damit ich antworten kann"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="thema" class="form-label">Worum geht es?</label>
+                <select id="thema" name="thema" class="form-select">
+                  <option value="">– bitte wählen –</option>
+                  <option value="coaching">Coaching-Anfrage</option>
+                  <option value="blog">Feedback zum Blog</option>
+                  <option value="zusammenarbeit">Zusammenarbeit / Kooperation</option>
+                  <option value="sonstiges">Sonstiges</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="nachricht" class="form-label">Deine Nachricht *</label>
+                <textarea
+                  id="nachricht"
+                  name="nachricht"
+                  class="form-textarea"
+                  placeholder="Was beschäftigt dich? Wo stehst du gerade? Je ehrlicher, desto hilfreicher meine Antwort."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-cta form-submit">→ Nachricht senden</button>
+              <p class="form-note">Keine automatisierten Antworten. Kein Newsletter-Opt-in.</p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 class="faq-h2 fade-in" id="faq-heading">Häufige Fragen.</h2>
+        <div class="faq-list">
+
+          <div class="faq-item fade-in" data-delay="1">
+            <h3 class="faq-q">Mit wem arbeitest du zusammen?</h3>
+            <p class="faq-a">Mit Menschen, die gründen wollen – oder schon angefangen haben – und sich selbst im Weg stehen. Nicht mit Menschen, die schnell reich werden wollen. Nicht mit Menschen, die nur auf der Suche nach dem nächsten Hype sind.</p>
+          </div>
+
+          <div class="faq-item fade-in" data-delay="2">
+            <h3 class="faq-q">Was kostet eine Zusammenarbeit?</h3>
+            <p class="faq-a">Das klären wir im Gespräch. Ich arbeite nicht nach Standardpreisliste. Was ich anbiete, hängt davon ab, was du brauchst. Schreib mir zuerst.</p>
+          </div>
+
+          <div class="faq-item fade-in" data-delay="3">
+            <h3 class="faq-q">Wie schnell antwortest du?</h3>
+            <p class="faq-a">Innerhalb von 48 Stunden. Wenn es länger dauert, habe ich deine Nachricht nicht gesehen – schreib einfach nochmal.</p>
+          </div>
+
+          <div class="faq-item fade-in" data-delay="4">
+            <h3 class="faq-q">Was ist, wenn ich mir nicht sicher bin, ob du mir helfen kannst?</h3>
+            <p class="faq-a">Dann schreib mir trotzdem. Ich bin ehrlich mit dir – auch wenn das bedeutet, dass ich dir sage, dass ich nicht der Richtige bin. Das kostet dich nichts außer ein paar Minuten.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/images/logo.png" alt="Daniel Matriciani" class="footer-logo">
+          <span class="footer-brand-name">Daniel Matriciani</span>
+          Gründer-Coaching &amp; Mindset<br>Rhens, Deutschland
+        </div>
+        <div class="footer-links">
+          <nav aria-label="Footer-Navigation">
+            <ul>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/ueber-mich/">Über mich</a></li>
+              <li><a href="/kontakt/">Kontakt</a></li>
+              <li><a href="/impressum/">Impressum</a></li>
+              <li><a href="/datenschutz/">Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        window.addEventListener('scroll', function () {
+          nav.classList.toggle('scrolled', window.scrollY > 8);
+        }, { passive: true });
+      }
+      var fadeEls = document.querySelectorAll('.fade-in');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+      } else {
+        fadeEls.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
+
+</body>
+</html>

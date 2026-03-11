@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Impressum – Daniel Matriciani</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .legal-section {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg);
+    }
+    .legal-body {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .legal-body h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .legal-body h2 {
+      font-size: 1.125rem;
+      color: var(--color-primary);
+      margin: 2rem 0 0.75rem;
+    }
+    .legal-body p, .legal-body address {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      font-style: normal;
+      margin-bottom: 0.75rem;
+    }
+    .legal-body a { color: var(--color-accent); }
+    .legal-note {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      border-top: 1px solid rgba(37,75,90,0.1);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/images/logo.png" alt="Daniel Matriciani" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Start</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/ueber-mich/" class="nav-link">Über mich</a>
+        <a href="/kontakt/" class="nav-cta-link">→ Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="legal-section">
+      <div class="container">
+        <div class="legal-body">
+          <h1>Impressum</h1>
+          <p>Angaben gemäß § 5 TMG</p>
+
+          <h2>Verantwortlich für den Inhalt</h2>
+          <address>
+            Daniel Matriciani<br>
+            Rhens, Rheinland-Pfalz<br>
+            Deutschland
+          </address>
+
+          <h2>Kontakt</h2>
+          <p>
+            E-Mail: <a href="mailto:kontakt@daniel-matriciani.de">kontakt@daniel-matriciani.de</a>
+          </p>
+
+          <h2>Inhaltlich verantwortlich</h2>
+          <p>Daniel Matriciani (Anschrift wie oben)</p>
+
+          <h2>Haftungsausschluss</h2>
+          <p>
+            Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+          </p>
+
+          <h2>Urheberrecht</h2>
+          <p>
+            Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+
+          <p class="legal-note">
+            Dieses Impressum gilt auch für Social-Media-Auftritte unter dem Namen Daniel Matriciani / @selbstwertwirkt.<br>
+            Letzte Aktualisierung: März 2026
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/images/logo.png" alt="Daniel Matriciani" class="footer-logo">
+          <span class="footer-brand-name">Daniel Matriciani</span>
+          Rhens, Deutschland
+        </div>
+        <div class="footer-links">
+          <nav aria-label="Footer-Navigation">
+            <ul>
+              <li><a href="/impressum/">Impressum</a></li>
+              <li><a href="/datenschutz/">Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script>
+    var nav = document.getElementById('site-nav');
+    if (nav) window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+  </script>
+</body>
+</html>
