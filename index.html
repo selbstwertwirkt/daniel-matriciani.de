@@ -6,13 +6,23 @@
   <meta name="description" content="Daniel Matriciani – Gründer-Coaching & Mindset. Für Menschen, die gründen wollen und sich selbst im Weg stehen." />
   <title>Daniel Matriciani – Gründer-Coaching & Mindset</title>
 
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Daniel Matriciani – Gründer-Coaching & Mindset" />
+  <meta property="og:description" content="Für Menschen, die gründen wollen und sich selbst im Weg stehen. Kein Opt-in. Kein Pitch. Einfach Content." />
+  <meta property="og:url" content="https://daniel-matriciani.de/" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daniel Matriciani – Gründer-Coaching & Mindset" />
+  <meta name="twitter:description" content="Für Menschen, die gründen wollen und sich selbst im Weg stehen." />
+
   <!-- Favicon Placeholder -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
 
-  <!-- Google Fonts -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
-  </style>
+  <!-- Google Fonts (preconnect + link statt @import für bessere Performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap">
 
   <style>
     /* ============================================================
@@ -111,20 +121,22 @@
       color: #fff;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       letter-spacing: 0.02em;
-      padding: 16px 32px;
-      border-radius: 8px;
+      padding: 18px 40px;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: filter 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(196, 105, 58, 0.35);
+      transition: all 0.25s ease;
     }
 
     .btn-cta:hover,
     .btn-cta:focus-visible {
-      filter: brightness(1.1);
-      transform: translateY(-2px);
+      filter: brightness(1.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(196, 105, 58, 0.4);
       text-decoration: none;
     }
 
@@ -194,20 +206,37 @@
     ============================================================ */
     /* hero section start */
     .section-hero {
-      background-color: var(--color-bg);
-      padding: var(--section-pad) 0;
+      background: linear-gradient(168deg, var(--color-bg) 0%, var(--color-surface) 100%);
+      padding: clamp(80px, 12vw, 140px) 0 var(--section-pad);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(196, 105, 58, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .hero-inner {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2.25rem, 5.5vw, 3.75rem);
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
     }
 
     .hero-h1 .line-teal {
@@ -554,7 +583,49 @@
     /* blog section end */
 
     /* ============================================================
-       SECTION 6: FOOTER
+       SECTION 6: KONTAKT / CTA
+    ============================================================ */
+    /* contact section start */
+    .section-contact {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1a3a47 100%);
+      padding: var(--section-pad) 0;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .contact-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--color-bg);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-text {
+      color: rgba(247, 249, 251, 0.85);
+      font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-cta-light {
+      background-color: #fff;
+      color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-cta-light:hover,
+    .btn-cta-light:focus-visible {
+      background-color: #fff;
+      color: var(--color-accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    /* contact section end */
+
+    /* ============================================================
+       SECTION 7: FOOTER
     ============================================================ */
     /* footer section start */
     .site-footer {
@@ -681,6 +752,53 @@
     /* ============================================================
        PRINT STYLES
     ============================================================ */
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delays for cards */
+    .fade-in[data-delay="1"] { transition-delay: 0.12s; }
+    .fade-in[data-delay="2"] { transition-delay: 0.24s; }
+    .fade-in[data-delay="3"] { transition-delay: 0.36s; }
+
+    /* Hero entrance animation */
+    @keyframes heroSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-inner {
+      animation: heroSlideUp 0.8s ease-out both;
+    }
+
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .hero-inner {
+        animation: none;
+      }
+    }
+
     @media print {
       .site-nav,
       .skip-link {
@@ -738,25 +856,25 @@
     <!-- problem section start -->
     <section class="section-problem" aria-labelledby="problem-heading">
       <div class="container">
-        <h2 class="problem-h2" id="problem-heading">Das läuft gerade in deinem Kopf – sei mal ehrlich.</h2>
+        <h2 class="problem-h2 fade-in" id="problem-heading">Das läuft gerade in deinem Kopf – sei mal ehrlich.</h2>
         <div class="problem-cards" role="list">
 
           <!-- Card 1 -->
-          <article class="problem-card" role="listitem">
+          <article class="problem-card fade-in" data-delay="1" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">🔁</span>
             <h3 class="problem-card-headline">„Ich fange an, sobald alles perfekt ist."</h3>
             <p class="problem-card-text">Spoiler: Es wird nie perfekt. Perfektionismus ist nur Prokrastination mit besserem Ruf.</p>
           </article>
 
           <!-- Card 2 -->
-          <article class="problem-card" role="listitem">
+          <article class="problem-card fade-in" data-delay="2" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">🎯</span>
             <h3 class="problem-card-headline">„Ich weiß nicht, worauf ich mich fokussieren soll."</h3>
             <p class="problem-card-text">Zu viele Optionen. Zu viele YouTube-Videos. Zu viele Menschen mit Meinung. Kein klarer nächster Schritt.</p>
           </article>
 
           <!-- Card 3 -->
-          <article class="problem-card" role="listitem">
+          <article class="problem-card fade-in" data-delay="3" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">⚡</span>
             <h3 class="problem-card-headline">„Ich will raus aus dem Hamsterrad – aber ich trau mich nicht."</h3>
             <p class="problem-card-text">Nicht weil du zu dumm bist. Sondern weil du noch keine echte Entscheidung getroffen hast.</p>
@@ -773,13 +891,13 @@
     <!-- framework section start -->
     <section class="section-framework" aria-labelledby="framework-heading">
       <div class="container">
-        <h2 class="framework-h2" id="framework-heading">Es gibt keinen Hack. Aber es gibt einen Weg.</h2>
+        <h2 class="framework-h2 fade-in" id="framework-heading">Es gibt keinen Hack. Aber es gibt einen Weg.</h2>
         <p class="framework-intro">
           Ich hab nicht in einem Seminar gelernt, wie man aus Lähmung ins Handeln kommt.<br>
           Ich hab's gelebt. Das hier ist das Ergebnis.
         </p>
 
-        <ol class="timeline" aria-label="5-Schritte-Framework">
+        <ol class="timeline fade-in" aria-label="5-Schritte-Framework">
 
           <li class="timeline-step">
             <span class="timeline-badge" aria-hidden="true">01</span>
@@ -822,7 +940,7 @@
     <!-- about section start -->
     <section class="section-about" aria-labelledby="about-heading">
       <div class="container">
-        <div class="about-inner">
+        <div class="about-inner fade-in">
 
           <!-- Photo -->
           <!--
@@ -862,7 +980,7 @@
     <!-- blog section start -->
     <section class="section-blog" id="blog" aria-labelledby="blog-heading">
       <div class="container">
-        <h2 class="blog-h2" id="blog-heading">Fang mit dem Blog an.</h2>
+        <h2 class="blog-h2 fade-in" id="blog-heading">Fang mit dem Blog an.</h2>
         <p class="blog-subtext">
           Kein Opt-in. Kein Funnel. Kein Pitch.<br>
           Nur konkreter Content für Menschen, die gründen wollen und sich selbst im Weg stehen.<br>
@@ -872,7 +990,7 @@
         <div class="blog-cards" role="list">
 
           <!-- Blog Card 1 -->
-          <article class="blog-card" role="listitem">
+          <article class="blog-card fade-in" data-delay="1" role="listitem">
             <span class="blog-card-tag" aria-label="Kategorie: Mindset">Mindset</span>
             <h3 class="blog-card-title">Warum Perfektionismus keine Tugend ist</h3>
             <p class="blog-card-teaser">Du wartest auf den richtigen Moment. Spoiler: Er kommt nicht.</p>
@@ -880,7 +998,7 @@
           </article>
 
           <!-- Blog Card 2 -->
-          <article class="blog-card" role="listitem">
+          <article class="blog-card fade-in" data-delay="2" role="listitem">
             <span class="blog-card-tag" aria-label="Kategorie: Fokus">Fokus</span>
             <h3 class="blog-card-title">Das eine Problem, das du wirklich lösen musst</h3>
             <p class="blog-card-teaser">Nicht fünf Baustellen. Eine. Hier ist wie du sie findest.</p>
@@ -888,7 +1006,7 @@
           </article>
 
           <!-- Blog Card 3 -->
-          <article class="blog-card" role="listitem">
+          <article class="blog-card fade-in" data-delay="3" role="listitem">
             <span class="blog-card-tag" aria-label="Kategorie: Entscheidung">Entscheidung</span>
             <h3 class="blog-card-title">Der Unterschied zwischen Nachdenken und Entscheiden</h3>
             <p class="blog-card-teaser">Die meisten Gründer denken nicht zu wenig. Sie entscheiden zu wenig.</p>
@@ -905,10 +1023,28 @@
     </section>
     <!-- blog section end -->
 
+    <!-- ============================================================
+         SECTION 6: KONTAKT / CTA
+    ============================================================ -->
+    <!-- contact section start -->
+    <section class="section-contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner fade-in">
+          <h2 class="contact-h2" id="contact-heading">Bereit, den ersten Schritt zu machen?</h2>
+          <p class="contact-text">
+            Kein Verkaufsgespräch. Kein Druck.<br>
+            Schreib mir eine Nachricht – und wir finden heraus, ob ich dir helfen kann.
+          </p>
+          <a href="mailto:kontakt@daniel-matriciani.de" class="btn-cta btn-cta-light">→ Schreib mir eine Nachricht</a>
+        </div>
+      </div>
+    </section>
+    <!-- contact section end -->
+
   </main>
 
   <!-- ============================================================
-       SECTION 6: FOOTER
+       SECTION 7: FOOTER
   ============================================================ -->
   <!-- footer section start -->
   <footer class="site-footer" role="contentinfo">
@@ -944,15 +1080,35 @@
   ============================================================ -->
   <script>
     (function () {
+      // Nav shadow on scroll
       var nav = document.getElementById('site-nav');
-      if (!nav) return;
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 8) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }, { passive: true });
+      if (nav) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 8) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+        }, { passive: true });
+      }
+
+      // Scroll-triggered fade-in animations
+      var fadeEls = document.querySelectorAll('.fade-in');
+      if (fadeEls.length && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        fadeEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        // Fallback: show everything
+        fadeEls.forEach(function (el) { el.classList.add('visible'); });
+      }
     })();
   </script>
 
