@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Der Blog von Daniel Matriciani – Mindset, Fokus und Gründer-Psychologie. Kein Opt-in, kein Pitch." />
+  <title>Blog – Daniel Matriciani</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog – Daniel Matriciani" />
+  <meta property="og:description" content="Mindset, Fokus und Gründer-Psychologie. Kein Opt-in, kein Pitch. Einfach ehrlicher Content." />
+  <meta property="og:url" content="https://daniel-matriciani.de/blog/" />
+  <meta property="og:locale" content="de_DE" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* ============================================================
+       BLOG PAGE STYLES
+    ============================================================ */
+
+    /* Featured post */
+    .blog-featured {
+      background: var(--color-bg);
+      padding: var(--section-pad) 0;
+    }
+
+    .featured-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 380px;
+    }
+
+    @media (max-width: 720px) {
+      .featured-card { grid-template-columns: 1fr; }
+    }
+
+    .featured-img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .featured-body {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    .featured-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--color-primary);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .featured-teaser {
+      color: var(--color-text-light);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* Category filter */
+    .blog-filter {
+      background: var(--color-surface);
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(37,75,90,0.08);
+    }
+
+    .filter-inner {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      background: #fff;
+      color: var(--color-text-light);
+      border: 1.5px solid rgba(37,75,90,0.15);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    /* All posts grid */
+    .blog-all {
+      background: var(--color-bg);
+      padding: var(--section-pad) 0;
+    }
+
+    .blog-section-h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--color-primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Newsletter teaser */
+    .blog-newsletter {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1a3a47 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .newsletter-h3 {
+      font-size: clamp(1.375rem, 3vw, 2rem);
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .newsletter-sub {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Sidebar-like author box */
+    .author-box {
+      background: var(--color-surface);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .author-box-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+    }
+
+    .author-box-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .author-box-bio {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      .author-box { flex-direction: column; text-align: center; }
+      .blog-newsletter { padding: 36px 24px; }
+      .featured-body { padding: 32px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Daniel Matriciani – Startseite">
+        <img src="/images/logo.png" alt="Daniel Matriciani" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Start</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <a href="/ueber-mich/" class="nav-link">Über mich</a>
+        <a href="/kontakt/" class="nav-cta-link">→ Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="blog-hero-heading">
+      <div class="container">
+        <span class="page-hero-tag">Content ohne Bullshit</span>
+        <h1 class="page-hero-h1" id="blog-hero-heading">Der Blog.</h1>
+        <p class="page-hero-sub">
+          Mindset. Fokus. Entscheidungen. KI als Werkzeug. Und was ich selbst gerade lerne.<br>
+          Kein Opt-in. Kein Funnel. Kein Pitch.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURED POST -->
+    <section class="blog-featured" aria-label="Empfohlener Artikel">
+      <div class="container">
+        <div class="featured-card fade-in">
+          <img
+            src="/images/daniel-hero.jpg"
+            alt="Daniel Matriciani – Fokus und Entscheidung"
+            class="featured-img"
+            loading="eager"
+          >
+          <div class="featured-body">
+            <span class="featured-label">⭐ Empfohlener Artikel · Mindset</span>
+            <h2 class="featured-title">Warum Perfektionismus keine Tugend ist – sondern dein größter Feind</h2>
+            <p class="featured-teaser">
+              Du wartest auf den richtigen Moment. Das perfekte Produkt. Die perfekte Idee. Den perfekten Plan. Und genau deshalb stehst du heute noch am gleichen Punkt wie vor sechs Monaten.
+            </p>
+            <a href="#" class="btn-cta">Jetzt lesen →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY FILTER -->
+    <div class="blog-filter" role="navigation" aria-label="Kategorien">
+      <div class="container">
+        <div class="filter-inner">
+          <span class="filter-label">Kategorie:</span>
+          <a href="#" class="filter-btn active">Alle</a>
+          <a href="#" class="filter-btn">Mindset</a>
+          <a href="#" class="filter-btn">Fokus</a>
+          <a href="#" class="filter-btn">Entscheidung</a>
+          <a href="#" class="filter-btn">KI & Tools</a>
+          <a href="#" class="filter-btn">Persönlich</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALL POSTS -->
+    <section class="blog-all" aria-labelledby="all-posts-heading">
+      <div class="container">
+        <h2 class="blog-section-h2" id="all-posts-heading">Alle Artikel</h2>
+
+        <div class="blog-grid" role="list">
+
+          <article class="blog-card fade-in" data-delay="1" role="listitem">
+            <img src="/images/daniel-about.jpg" alt="Daniel Matriciani draußen" class="blog-card-img" loading="lazy">
+            <span class="blog-card-tag">Mindset</span>
+            <p class="blog-card-meta">März 2026 · 5 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Warum Perfektionismus keine Tugend ist</h3>
+            <p class="blog-card-teaser">Du wartest auf den richtigen Moment. Spoiler: Er kommt nicht.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="2" role="listitem">
+            <img src="/images/daniel-1.jpg" alt="Daniel Matriciani" class="blog-card-img" loading="lazy">
+            <span class="blog-card-tag">Fokus</span>
+            <p class="blog-card-meta">März 2026 · 6 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Das eine Problem, das du wirklich lösen musst</h3>
+            <p class="blog-card-teaser">Nicht fünf Baustellen. Eine. Hier ist wie du sie findest.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="3" role="listitem">
+            <img src="/images/daniel-2.jpg" alt="Daniel Matriciani" class="blog-card-img" loading="lazy">
+            <span class="blog-card-tag">Entscheidung</span>
+            <p class="blog-card-meta">Februar 2026 · 4 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Der Unterschied zwischen Nachdenken und Entscheiden</h3>
+            <p class="blog-card-teaser">Die meisten Gründer denken nicht zu wenig. Sie entscheiden zu wenig.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="1" role="listitem">
+            <span class="blog-card-tag">KI & Tools</span>
+            <p class="blog-card-meta">Februar 2026 · 7 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Wie ich KI als Gründer-Werkzeug nutze – ohne mich dabei zu verlieren</h3>
+            <p class="blog-card-teaser">KI macht dich nicht zum Gründer. Aber sie kann dir Zeit zurückgeben, damit du es wirst.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="2" role="listitem">
+            <span class="blog-card-tag">Persönlich</span>
+            <p class="blog-card-meta">Januar 2026 · 8 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Was ich in meiner schwierigsten Phase gelernt habe</h3>
+            <p class="blog-card-teaser">Kein inspirierender Bullshit. Nur das, was wirklich geholfen hat.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="3" role="listitem">
+            <span class="blog-card-tag">Mindset</span>
+            <p class="blog-card-meta">Januar 2026 · 5 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Warum dein Umfeld wichtiger ist als dein Plan</h3>
+            <p class="blog-card-teaser">Du kannst den besten Business-Plan der Welt haben. Wenn dein Umfeld dich kleinhalten will, wirst du scheitern.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="1" role="listitem">
+            <span class="blog-card-tag">Fokus</span>
+            <p class="blog-card-meta">Dezember 2025 · 6 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Die 3 Entscheidungen, die alles verändert haben</h3>
+            <p class="blog-card-teaser">Nicht drei Strategien. Drei Momente, in denen ich aufgehört habe zu warten.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="2" role="listitem">
+            <span class="blog-card-tag">Entscheidung</span>
+            <p class="blog-card-meta">Dezember 2025 · 5 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Was FBA, Dropshipping und Affiliate gemeinsam haben</h3>
+            <p class="blog-card-teaser">Das Modell ist nicht das Problem. Du bist das Problem. Und das ist gute Nachricht.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+          <article class="blog-card fade-in" data-delay="3" role="listitem">
+            <span class="blog-card-tag">Persönlich</span>
+            <p class="blog-card-meta">November 2025 · 10 Min. Lesezeit</p>
+            <h3 class="blog-card-title">Von Rhens aus die Welt verändern – oder zumindest mein Leben</h3>
+            <p class="blog-card-teaser">Ein ehrlicher Blick darauf, wo ich stehe, was ich will und warum ich trotzdem weitermache.</p>
+            <a href="#" class="blog-card-link">Weiterlesen →</a>
+          </article>
+
+        </div>
+
+        <!-- Author Box -->
+        <div class="author-box fade-in">
+          <img src="/images/daniel-about.jpg" alt="Daniel Matriciani" class="author-box-img" loading="lazy">
+          <div>
+            <p class="author-box-name">Daniel Matriciani</p>
+            <p class="author-box-bio">Kaufmann, angehender Coach und Gründer in Ausbildung. Ich schreibe über das, was ich selbst gerade lerne – ohne Filter, ohne Bullshit.</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Teaser -->
+        <div class="blog-newsletter fade-in">
+          <h3 class="newsletter-h3">Kein Newsletter. Echte Gespräche.</h3>
+          <p class="newsletter-sub">
+            Ich verschicke keine wöchentlichen Mails. Wenn du wirklich reden willst –<br>
+            schreib mir direkt. Das ist ehrlicher.
+          </p>
+          <a href="/kontakt/" class="btn-cta btn-cta-light">→ Direkt Kontakt aufnehmen</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/images/logo.png" alt="Daniel Matriciani" class="footer-logo">
+          <span class="footer-brand-name">Daniel Matriciani</span>
+          Gründer-Coaching &amp; Mindset<br>Rhens, Deutschland
+        </div>
+        <div class="footer-links">
+          <nav aria-label="Footer-Navigation">
+            <ul>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/ueber-mich/">Über mich</a></li>
+              <li><a href="/kontakt/">Kontakt</a></li>
+              <li><a href="/impressum/">Impressum</a></li>
+              <li><a href="/datenschutz/">Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        window.addEventListener('scroll', function () {
+          nav.classList.toggle('scrolled', window.scrollY > 8);
+        }, { passive: true });
+      }
+      var fadeEls = document.querySelectorAll('.fade-in');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
+      } else {
+        fadeEls.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
+
+</body>
+</html>

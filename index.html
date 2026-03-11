@@ -6,269 +6,161 @@
   <meta name="description" content="Daniel Matriciani – Gründer-Coaching & Mindset. Für Menschen, die gründen wollen und sich selbst im Weg stehen." />
   <title>Daniel Matriciani – Gründer-Coaching & Mindset</title>
 
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Daniel Matriciani – Gründer-Coaching & Mindset" />
   <meta property="og:description" content="Für Menschen, die gründen wollen und sich selbst im Weg stehen. Kein Opt-in. Kein Pitch. Einfach Content." />
   <meta property="og:url" content="https://daniel-matriciani.de/" />
+  <meta property="og:image" content="https://daniel-matriciani.de/images/daniel-hero.jpg" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Daniel Matriciani – Gründer-Coaching & Mindset" />
-  <meta name="twitter:description" content="Für Menschen, die gründen wollen und sich selbst im Weg stehen." />
 
-  <!-- Favicon Placeholder -->
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
 
-  <!-- Google Fonts (preconnect + link statt @import für bessere Performance) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap">
 
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/style.css">
+
   <style>
     /* ============================================================
-       CSS CUSTOM PROPERTIES
+       HERO – 2-Spalten-Layout mit Foto
     ============================================================ */
-    :root {
-      --color-primary:     #254B5A;
-      --color-secondary:   #7F9A83;
-      --color-accent:      #C4693A;
-      --color-bg:          #F7F9FB;
-      --color-surface:     #D4E1E7;
-      --color-text:        #1E2328;
-      --color-text-light:  #4A5568;
-
-      --font-heading: 'Poppins', sans-serif;
-      --font-body:    'Inter', sans-serif;
-
-      --radius-card:  16px;
-      --shadow-soft:  0 4px 20px rgba(0, 0, 0, 0.07);
-      --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.13);
-
-      --section-pad: clamp(64px, 8vw, 100px);
-    }
-
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 100%;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      line-height: 1.7;
-      color: var(--color-text);
-      background-color: var(--color-bg);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-heading);
-      line-height: 1.2;
-    }
-
-    h2 {
-      line-height: 1.3;
-    }
-
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    /* ============================================================
-       UTILITY CLASSES
-    ============================================================ */
-    .container {
-      width: 100%;
-      max-width: 1160px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: clamp(20px, 5vw, 40px);
-      padding-right: clamp(20px, 5vw, 40px);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    /* CTA Button */
-    .btn-cta {
-      display: inline-block;
-      background-color: var(--color-accent);
-      color: #fff;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 1.0625rem;
-      letter-spacing: 0.02em;
-      padding: 18px 40px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(196, 105, 58, 0.35);
-      transition: all 0.25s ease;
-    }
-
-    .btn-cta:hover,
-    .btn-cta:focus-visible {
-      filter: brightness(1.08);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(196, 105, 58, 0.4);
-      text-decoration: none;
-    }
-
-    .btn-cta:focus-visible {
-      outline: 3px solid var(--color-accent);
-      outline-offset: 4px;
-    }
-
-    /* ============================================================
-       NAVIGATION
-    ============================================================ */
-    /* nav section start */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 64px;
-      background-color: var(--color-bg);
-      border-bottom: 1px solid rgba(37, 75, 90, 0.08);
-      display: flex;
-      align-items: center;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .site-nav.scrolled {
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.125rem;
-      color: var(--color-primary);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .nav-logo:hover {
-      text-decoration: none;
-      opacity: 0.85;
-    }
-
-    .nav-cta {
-      font-family: var(--font-body);
-      font-weight: 500;
-      color: var(--color-accent);
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-
-    .nav-cta:hover {
-      text-decoration: underline;
-      opacity: 0.85;
-    }
-    /* nav section end */
-
-    /* ============================================================
-       SECTION 1: HERO
-    ============================================================ */
-    /* hero section start */
     .section-hero {
-      background: linear-gradient(168deg, var(--color-bg) 0%, var(--color-surface) 100%);
-      padding: clamp(80px, 12vw, 140px) 0 var(--section-pad);
-      text-align: center;
+      background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-surface) 60%, #c2d7e0 100%);
+      min-height: 88vh;
+      display: flex;
+      align-items: stretch;
       position: relative;
       overflow: hidden;
     }
 
+    /* Dekorativer Kreis */
     .section-hero::before {
       content: '';
       position: absolute;
-      top: -40%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(196, 105, 58, 0.06) 0%, transparent 70%);
+      top: -20%;
+      left: 30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196, 105, 58, 0.07) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
     }
 
-    .hero-inner {
-      max-width: 740px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 60px);
+      gap: 40px;
+    }
+
+    .hero-text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(80px, 10vw, 120px) 0 clamp(60px, 8vw, 100px);
       position: relative;
       z-index: 1;
+      animation: heroSlideUp 0.9s ease-out both;
+    }
+
+    .hero-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.25rem;
+      display: block;
     }
 
     .hero-h1 {
-      font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+      font-size: clamp(2.1rem, 4.5vw, 3.4rem);
       font-weight: 700;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       letter-spacing: -0.02em;
+      line-height: 1.18;
     }
 
-    .hero-h1 .line-teal {
-      display: block;
-      color: var(--color-primary);
-    }
-
-    .hero-h1 .line-accent {
-      display: block;
-      color: var(--color-accent);
-    }
+    .hero-h1 .line-teal { color: var(--color-primary); }
+    .hero-h1 .line-accent { color: var(--color-accent); display: block; }
 
     .hero-subtext {
-      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
       color: var(--color-text-light);
-      max-width: 580px;
-      margin: 0 auto 2rem;
+      max-width: 480px;
       line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .hero-trust {
-      display: block;
-      margin-top: 0.875rem;
       font-size: 0.875rem;
       color: var(--color-text-light);
     }
-    /* hero section end */
+
+    /* Foto-Spalte */
+    .hero-photo-col {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-photo-col img {
+      width: 100%;
+      max-width: 480px;
+      height: 90vh;
+      max-height: 700px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 24px 24px 0 0;
+      box-shadow: -12px 0 48px rgba(37, 75, 90, 0.18);
+      animation: heroSlideUp 0.9s 0.15s ease-out both;
+    }
+
+    @media (max-width: 900px) {
+      .section-hero { min-height: auto; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+        padding-bottom: 0;
+        gap: 0;
+      }
+      .hero-text-col { padding: 0 0 40px; }
+      .hero-photo-col { justify-content: center; }
+      .hero-photo-col img {
+        width: 80%;
+        max-width: 360px;
+        height: 420px;
+        border-radius: 20px 20px 0 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-photo-col img { width: 100%; max-width: 100%; border-radius: 0; }
+      .hero-cta-row { flex-direction: column; align-items: flex-start; }
+      .btn-cta { width: 100%; text-align: center; }
+    }
 
     /* ============================================================
-       SECTION 2: PROBLEM
+       PROBLEM SECTION
     ============================================================ */
-    /* problem section start */
     .section-problem {
       background-color: var(--color-surface);
       padding: var(--section-pad) 0;
@@ -288,9 +180,7 @@
     }
 
     @media (max-width: 768px) {
-      .problem-cards {
-        grid-template-columns: 1fr;
-      }
+      .problem-cards { grid-template-columns: 1fr; }
     }
 
     .problem-card {
@@ -327,12 +217,10 @@
       color: var(--color-text-light);
       line-height: 1.65;
     }
-    /* problem section end */
 
     /* ============================================================
-       SECTION 3: FRAMEWORK
+       FRAMEWORK / TIMELINE
     ============================================================ */
-    /* framework section start */
     .section-framework {
       background-color: var(--color-bg);
       padding: var(--section-pad) 0;
@@ -359,17 +247,17 @@
       position: relative;
       max-width: 680px;
       margin: 0 auto;
-      padding-left: 48px;
+      padding-left: 56px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 15px;
-      top: 8px;
-      bottom: 8px;
+      left: 19px;
+      top: 17px;
+      bottom: 17px;
       width: 3px;
-      background-color: var(--color-secondary);
+      background: linear-gradient(to bottom, var(--color-secondary), var(--color-accent));
       border-radius: 2px;
     }
 
@@ -378,26 +266,26 @@
       margin-bottom: 2.75rem;
     }
 
-    .timeline-step:last-child {
-      margin-bottom: 0;
-    }
+    .timeline-step:last-child { margin-bottom: 0; }
 
     .timeline-badge {
       position: absolute;
-      left: -48px;
+      left: -56px;
       top: 0;
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background-color: var(--color-accent);
       color: #fff;
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.8125rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      letter-spacing: 0.01em;
+      z-index: 2;       /* ← fix: über der Linie */
+      position: absolute;
+      box-shadow: 0 2px 8px rgba(196, 105, 58, 0.4);
     }
 
     .timeline-title {
@@ -414,12 +302,16 @@
       font-size: 0.9375rem;
       line-height: 1.7;
     }
-    /* framework section end */
+
+    @media (max-width: 480px) {
+      .timeline { padding-left: 50px; }
+      .timeline::before { left: 16px; }
+      .timeline-badge { left: -50px; width: 34px; height: 34px; font-size: 0.75rem; }
+    }
 
     /* ============================================================
-       SECTION 4: ÜBER MICH
+       ÜBER MICH
     ============================================================ */
-    /* about section start */
     .section-about {
       background-color: var(--color-primary);
       padding: var(--section-pad) 0;
@@ -427,40 +319,34 @@
 
     .about-inner {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 56px;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
       align-items: center;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 700px) {
       .about-inner {
         grid-template-columns: 1fr;
         gap: 32px;
         text-align: center;
       }
-
-      .about-photo-wrap {
-        margin: 0 auto;
-      }
+      .about-photo-wrap { margin: 0 auto; }
     }
 
     .about-photo-wrap {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+      width: 240px;
+      height: 300px;
+      border-radius: 20px;
       overflow: hidden;
-      background-color: var(--color-secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
 
     .about-photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center top;
     }
 
     .about-h2 {
@@ -475,15 +361,15 @@
       line-height: 1.75;
     }
 
-    .about-copy p + p {
-      margin-top: 1rem;
+    .about-copy p + p { margin-top: 1rem; }
+
+    .about-cta {
+      margin-top: 2rem;
     }
-    /* about section end */
 
     /* ============================================================
-       SECTION 5: BLOG
+       BLOG SECTION
     ============================================================ */
-    /* blog section start */
     .section-blog {
       background-color: var(--color-surface);
       padding: var(--section-pad) 0;
@@ -512,80 +398,14 @@
     }
 
     @media (max-width: 768px) {
-      .blog-cards {
-        grid-template-columns: 1fr;
-      }
+      .blog-cards { grid-template-columns: 1fr; }
     }
 
-    .blog-card {
-      background: #fff;
-      border-radius: var(--radius-card);
-      padding: 28px;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .blog-card-tag {
-      display: inline-block;
-      background-color: var(--color-accent);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-      width: fit-content;
-    }
-
-    .blog-card-title {
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 1.0625rem;
-      color: var(--color-primary);
-      line-height: 1.35;
-      margin-bottom: 0.75rem;
-    }
-
-    .blog-card-teaser {
-      font-size: 0.9375rem;
-      color: var(--color-text-light);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.25rem;
-    }
-
-    .blog-card-link {
-      font-weight: 500;
-      font-size: 0.9375rem;
-      color: var(--color-accent);
-      text-decoration: none;
-      margin-top: auto;
-      transition: opacity 0.15s ease;
-    }
-
-    .blog-card-link:hover {
-      text-decoration: underline;
-      opacity: 0.85;
-    }
-
-    .blog-cta-wrap {
-      text-align: center;
-    }
-    /* blog section end */
+    .blog-cta-wrap { text-align: center; }
 
     /* ============================================================
-       SECTION 6: KONTAKT / CTA
+       KONTAKT / CTA
     ============================================================ */
-    /* contact section start */
     .section-contact {
       background: linear-gradient(135deg, var(--color-primary) 0%, #1a3a47 100%);
       padding: var(--section-pad) 0;
@@ -609,271 +429,82 @@
       line-height: 1.75;
       margin-bottom: 2.5rem;
     }
-
-    .btn-cta-light {
-      background-color: #fff;
-      color: var(--color-primary);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-cta-light:hover,
-    .btn-cta-light:focus-visible {
-      background-color: #fff;
-      color: var(--color-accent);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    }
-    /* contact section end */
-
-    /* ============================================================
-       SECTION 7: FOOTER
-    ============================================================ */
-    /* footer section start */
-    .site-footer {
-      background-color: var(--color-text);
-      padding: clamp(40px, 5vw, 64px) 0 32px;
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 560px) {
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .footer-links {
-        text-align: left;
-      }
-    }
-
-    .footer-brand {
-      color: rgba(247, 249, 251, 0.7);
-      font-size: 0.9375rem;
-      line-height: 1.7;
-    }
-
-    .footer-brand-name {
-      display: block;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1rem;
-      color: rgba(247, 249, 251, 0.9);
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-links {
-      text-align: right;
-    }
-
-    .footer-links ul {
-      display: flex;
-      gap: 24px;
-      justify-content: flex-end;
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 560px) {
-      .footer-links ul {
-        justify-content: flex-start;
-      }
-    }
-
-    .footer-links a {
-      color: var(--color-secondary);
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-      opacity: 0.85;
-    }
-
-    .footer-copy {
-      border-top: 1px solid rgba(247, 249, 251, 0.1);
-      padding-top: 1.5rem;
-      text-align: center;
-      color: rgba(247, 249, 251, 0.4);
-      font-size: 0.8125rem;
-    }
-    /* footer section end */
-
-    /* ============================================================
-       ACCESSIBILITY: FOCUS STYLES
-    ============================================================ */
-    :focus-visible {
-      outline: 3px solid var(--color-accent);
-      outline-offset: 3px;
-    }
-
-    /* Skip to content */
-    .skip-link {
-      position: absolute;
-      top: -100%;
-      left: 0;
-      background: var(--color-accent);
-      color: #fff;
-      padding: 8px 16px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: 0 0 8px 0;
-      z-index: 200;
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
-    /* ============================================================
-       SCROLL-TRIGGERED NAV SHADOW (JS-free fallback via CSS)
-       We use a tiny inline script for this.
-    ============================================================ */
-
-    /* ============================================================
-       RESPONSIVE TWEAKS
-    ============================================================ */
-    @media (max-width: 480px) {
-      .btn-cta {
-        width: 100%;
-        text-align: center;
-      }
-
-      .timeline {
-        padding-left: 44px;
-      }
-    }
-
-    /* ============================================================
-       PRINT STYLES
-    ============================================================ */
-    /* ============================================================
-       SCROLL ANIMATIONS
-    ============================================================ */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Staggered delays for cards */
-    .fade-in[data-delay="1"] { transition-delay: 0.12s; }
-    .fade-in[data-delay="2"] { transition-delay: 0.24s; }
-    .fade-in[data-delay="3"] { transition-delay: 0.36s; }
-
-    /* Hero entrance animation */
-    @keyframes heroSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(32px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-inner {
-      animation: heroSlideUp 0.8s ease-out both;
-    }
-
-    /* Prefers reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .hero-inner {
-        animation: none;
-      }
-    }
-
-    @media print {
-      .site-nav,
-      .skip-link {
-        display: none;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Skip Navigation (Accessibility) -->
   <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <!-- nav section start -->
+  <!-- NAVIGATION -->
   <nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo" aria-label="Daniel Matriciani – Startseite">Daniel Matriciani</a>
-      <a href="#blog" class="nav-cta" aria-label="Zum Blog navigieren">→ Zum Blog</a>
+      <a href="/" class="nav-logo" aria-label="Daniel Matriciani – Startseite">
+        <img src="/images/logo.png" alt="Daniel Matriciani" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link active">Start</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/ueber-mich/" class="nav-link">Über mich</a>
+        <a href="/kontakt/" class="nav-cta-link">→ Kontakt</a>
+      </div>
     </div>
   </nav>
-  <!-- nav section end -->
 
   <main id="main-content">
 
-    <!-- ============================================================
-         SECTION 1: HERO
-    ============================================================ -->
-    <!-- hero section start -->
+    <!-- HERO -->
     <section class="section-hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hero-inner">
+      <div class="hero-grid">
+
+        <!-- Text -->
+        <div class="hero-text-col">
+          <span class="hero-tag">Gründer-Coaching & Mindset</span>
           <h1 class="hero-h1" id="hero-heading">
-            <span class="line-teal">Du weißt, dass du gründen willst.<br>Du weißt nur nicht, warum du immer noch</span>
+            <span class="line-teal">Du weißt, dass du gründen willst. Du weißt nur nicht, warum du immer noch</span>
             <span class="line-accent">nicht angefangen hast.</span>
           </h1>
           <p class="hero-subtext">
             FBA. Dropshipping. Affiliate. Social Media. Irgendwas dazwischen.<br>
             Du hast nicht das Problem, dass du keine Ideen hast.<br>
-            Du hast das Problem, dass du dich selbst blockierst –&nbsp;und es bisher noch nicht so direkt gesagt hast.
+            Du hast das Problem, dass du dich selbst blockierst – und es bisher noch nicht so direkt gesagt hast.
           </p>
-          <a href="#blog" class="btn-cta">→ Zum Blog – Fang hier an.</a>
-          <span class="hero-trust">Kein Opt-in. Kein Pitch. Einfach Content.</span>
+          <div class="hero-cta-row">
+            <a href="/blog/" class="btn-cta">→ Zum Blog – Fang hier an.</a>
+            <span class="hero-trust">Kein Opt-in. Kein Pitch.</span>
+          </div>
         </div>
+
+        <!-- Foto -->
+        <div class="hero-photo-col">
+          <img
+            src="/images/daniel-hero.jpg"
+            alt="Daniel Matriciani – Gründer-Coach"
+            loading="eager"
+          >
+        </div>
+
       </div>
     </section>
-    <!-- hero section end -->
 
-    <!-- ============================================================
-         SECTION 2: PROBLEM
-    ============================================================ -->
-    <!-- problem section start -->
+    <!-- PROBLEM -->
     <section class="section-problem" aria-labelledby="problem-heading">
       <div class="container">
         <h2 class="problem-h2 fade-in" id="problem-heading">Das läuft gerade in deinem Kopf – sei mal ehrlich.</h2>
         <div class="problem-cards" role="list">
 
-          <!-- Card 1 -->
           <article class="problem-card fade-in" data-delay="1" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">🔁</span>
             <h3 class="problem-card-headline">„Ich fange an, sobald alles perfekt ist."</h3>
             <p class="problem-card-text">Spoiler: Es wird nie perfekt. Perfektionismus ist nur Prokrastination mit besserem Ruf.</p>
           </article>
 
-          <!-- Card 2 -->
           <article class="problem-card fade-in" data-delay="2" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">🎯</span>
             <h3 class="problem-card-headline">„Ich weiß nicht, worauf ich mich fokussieren soll."</h3>
             <p class="problem-card-text">Zu viele Optionen. Zu viele YouTube-Videos. Zu viele Menschen mit Meinung. Kein klarer nächster Schritt.</p>
           </article>
 
-          <!-- Card 3 -->
           <article class="problem-card fade-in" data-delay="3" role="listitem">
             <span class="problem-card-icon" aria-hidden="true">⚡</span>
             <h3 class="problem-card-headline">„Ich will raus aus dem Hamsterrad – aber ich trau mich nicht."</h3>
@@ -883,47 +514,43 @@
         </div>
       </div>
     </section>
-    <!-- problem section end -->
 
-    <!-- ============================================================
-         SECTION 3: FRAMEWORK
-    ============================================================ -->
-    <!-- framework section start -->
+    <!-- FRAMEWORK -->
     <section class="section-framework" aria-labelledby="framework-heading">
       <div class="container">
         <h2 class="framework-h2 fade-in" id="framework-heading">Es gibt keinen Hack. Aber es gibt einen Weg.</h2>
-        <p class="framework-intro">
+        <p class="framework-intro fade-in">
           Ich hab nicht in einem Seminar gelernt, wie man aus Lähmung ins Handeln kommt.<br>
           Ich hab's gelebt. Das hier ist das Ergebnis.
         </p>
 
-        <ol class="timeline fade-in" aria-label="5-Schritte-Framework">
+        <ol class="timeline" aria-label="5-Schritte-Framework">
 
-          <li class="timeline-step">
+          <li class="timeline-step fade-in" data-delay="1">
             <span class="timeline-badge" aria-hidden="true">01</span>
             <h3 class="timeline-title">Entscheidung</h3>
             <p class="timeline-text">Der Moment, in dem du aufhörst zu warten – und anfängst zu wählen. Nicht der perfekte Plan. Nur die Einsicht: So geht es nicht weiter.</p>
           </li>
 
-          <li class="timeline-step">
+          <li class="timeline-step fade-in" data-delay="2">
             <span class="timeline-badge" aria-hidden="true">02</span>
             <h3 class="timeline-title">Fokus</h3>
             <p class="timeline-text">Dein Kopf will alles auf einmal lösen. Das ist keine Stärke – das ist Überforderung. Ein Problem. Eine Handlung. Wiederholt.</p>
           </li>
 
-          <li class="timeline-step">
+          <li class="timeline-step fade-in" data-delay="3">
             <span class="timeline-badge" aria-hidden="true">03</span>
             <h3 class="timeline-title">Ehrlichkeit</h3>
             <p class="timeline-text">Nicht die Version, die erträglich ist. Das echte Problem. Solange du um den Kern herumredest, arbeitest du an der falschen Baustelle.</p>
           </li>
 
-          <li class="timeline-step">
+          <li class="timeline-step fade-in" data-delay="4">
             <span class="timeline-badge" aria-hidden="true">04</span>
             <h3 class="timeline-title">Denken ändern</h3>
             <p class="timeline-text">Taktiken ändern dein Verhalten für drei Wochen. Überzeugungen ändern dein Leben. Das Schwerste – und das Einzige, das wirklich hält.</p>
           </li>
 
-          <li class="timeline-step">
+          <li class="timeline-step fade-in" data-delay="5">
             <span class="timeline-badge" aria-hidden="true">05</span>
             <h3 class="timeline-title">Klarheit &amp; Umsetzung</h3>
             <p class="timeline-text">Wissen reicht nicht. Es braucht täglich eine Entscheidung. Nicht perfekt. Jeden Tag einen Schritt in die Richtung, die du gewählt hast.</p>
@@ -932,101 +559,79 @@
         </ol>
       </div>
     </section>
-    <!-- framework section end -->
 
-    <!-- ============================================================
-         SECTION 4: ÜBER MICH
-    ============================================================ -->
-    <!-- about section start -->
+    <!-- ÜBER MICH -->
     <section class="section-about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about-inner fade-in">
 
-          <!-- Photo -->
-          <!--
-            FOTO ERSETZEN: Ersetze das src-Attribut unten mit deinem echten Foto-Pfad.
-            Empfohlene Bildgröße: 400x400px (quadratisch), wird rund beschnitten.
-            Beispiel: src="images/daniel-matriciani.jpg"
-          -->
           <div class="about-photo-wrap">
             <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%237F9A83'/%3E%3Ctext x='50%25' y='44%25' dominant-baseline='middle' text-anchor='middle' font-size='15' fill='%23F7F9FB' font-family='sans-serif' font-weight='500'%3EFoto%3C/text%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-size='15' fill='%23F7F9FB' font-family='sans-serif' font-weight='500'%3EDaniel%3C/text%3E%3C/svg%3E"
+              src="/images/daniel-about.jpg"
               alt="Daniel Matriciani"
-              width="200"
-              height="200"
-              id="photo-daniel"
+              width="240"
+              height="300"
+              loading="lazy"
             >
           </div>
 
-          <!-- Text -->
           <div class="about-text">
             <h2 class="about-h2" id="about-heading">Warum ich dir das sagen kann.</h2>
             <div class="about-copy">
               <p>Ich heiße Daniel Matriciani. Kaufmann, angehender Coach, und jemand, der seinen Tiefpunkt nicht in einer Sinnkrise auf einer Yogamatte hatte.</p>
               <p>Ich hab mein ganzes Denken in einer Situation neu aufgebaut, in der ich buchstäblich nichts hatte – keine Freiheit, kein Netzwerk, keine Ressourcen außer meinem eigenen Kopf. Was dabei entstanden ist, ist kein Coaching-Lehrbuch. Es ist ein Framework, das unter maximalem Druck entstanden ist.</p>
               <p>Heute baue ich daraus ein Unternehmen auf – parallel zur Ausbildung, von Rhens aus, mit KI als Werkzeug und mit dem Anspruch, ehrlich zu sein, auch wenn es unbequem wird.</p>
-              <p>Ich arbeite nicht mit jedem. Aber wenn du weißt, dass du es drauf hast – und einfach nicht von der Stelle kommst – dann bin ich vielleicht der Richtige.</p>
+            </div>
+            <div class="about-cta">
+              <a href="/ueber-mich/" class="btn-cta-light btn-cta">→ Mehr über mich</a>
             </div>
           </div>
 
         </div>
       </div>
     </section>
-    <!-- about section end -->
 
-    <!-- ============================================================
-         SECTION 5: BLOG
-    ============================================================ -->
-    <!-- blog section start -->
+    <!-- BLOG -->
     <section class="section-blog" id="blog" aria-labelledby="blog-heading">
       <div class="container">
         <h2 class="blog-h2 fade-in" id="blog-heading">Fang mit dem Blog an.</h2>
-        <p class="blog-subtext">
+        <p class="blog-subtext fade-in">
           Kein Opt-in. Kein Funnel. Kein Pitch.<br>
-          Nur konkreter Content für Menschen, die gründen wollen und sich selbst im Weg stehen.<br>
-          Perfektionismus. Fokus. Entscheidungen. KI als Werkzeug. Und was ich selbst gerade lerne.
+          Nur konkreter Content für Menschen, die gründen wollen und sich selbst im Weg stehen.
         </p>
 
         <div class="blog-cards" role="list">
 
-          <!-- Blog Card 1 -->
           <article class="blog-card fade-in" data-delay="1" role="listitem">
-            <span class="blog-card-tag" aria-label="Kategorie: Mindset">Mindset</span>
+            <span class="blog-card-tag">Mindset</span>
             <h3 class="blog-card-title">Warum Perfektionismus keine Tugend ist</h3>
             <p class="blog-card-teaser">Du wartest auf den richtigen Moment. Spoiler: Er kommt nicht.</p>
-            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Warum Perfektionismus keine Tugend ist">Weiterlesen →</a>
+            <a href="/blog/" class="blog-card-link">Weiterlesen →</a>
           </article>
 
-          <!-- Blog Card 2 -->
           <article class="blog-card fade-in" data-delay="2" role="listitem">
-            <span class="blog-card-tag" aria-label="Kategorie: Fokus">Fokus</span>
+            <span class="blog-card-tag">Fokus</span>
             <h3 class="blog-card-title">Das eine Problem, das du wirklich lösen musst</h3>
             <p class="blog-card-teaser">Nicht fünf Baustellen. Eine. Hier ist wie du sie findest.</p>
-            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Das eine Problem, das du wirklich lösen musst">Weiterlesen →</a>
+            <a href="/blog/" class="blog-card-link">Weiterlesen →</a>
           </article>
 
-          <!-- Blog Card 3 -->
           <article class="blog-card fade-in" data-delay="3" role="listitem">
-            <span class="blog-card-tag" aria-label="Kategorie: Entscheidung">Entscheidung</span>
+            <span class="blog-card-tag">Entscheidung</span>
             <h3 class="blog-card-title">Der Unterschied zwischen Nachdenken und Entscheiden</h3>
             <p class="blog-card-teaser">Die meisten Gründer denken nicht zu wenig. Sie entscheiden zu wenig.</p>
-            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Der Unterschied zwischen Nachdenken und Entscheiden">Weiterlesen →</a>
+            <a href="/blog/" class="blog-card-link">Weiterlesen →</a>
           </article>
 
         </div>
 
         <div class="blog-cta-wrap">
-          <a href="#" class="btn-cta" aria-label="Alle Blog-Artikel lesen">→ Alle Artikel lesen</a>
+          <a href="/blog/" class="btn-cta">→ Alle Artikel lesen</a>
         </div>
-
       </div>
     </section>
-    <!-- blog section end -->
 
-    <!-- ============================================================
-         SECTION 6: KONTAKT / CTA
-    ============================================================ -->
-    <!-- contact section start -->
+    <!-- KONTAKT CTA -->
     <section class="section-contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="contact-inner fade-in">
@@ -1035,78 +640,56 @@
             Kein Verkaufsgespräch. Kein Druck.<br>
             Schreib mir eine Nachricht – und wir finden heraus, ob ich dir helfen kann.
           </p>
-          <a href="mailto:kontakt@daniel-matriciani.de" class="btn-cta btn-cta-light">→ Schreib mir eine Nachricht</a>
+          <a href="/kontakt/" class="btn-cta btn-cta-light">→ Schreib mir eine Nachricht</a>
         </div>
       </div>
     </section>
-    <!-- contact section end -->
 
   </main>
 
-  <!-- ============================================================
-       SECTION 7: FOOTER
-  ============================================================ -->
-  <!-- footer section start -->
+  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
-
-        <!-- Brand -->
         <div class="footer-brand">
+          <img src="/images/logo.png" alt="Daniel Matriciani" class="footer-logo">
           <span class="footer-brand-name">Daniel Matriciani</span>
           Gründer-Coaching &amp; Mindset<br>
           Rhens, Deutschland
         </div>
-
-        <!-- Links -->
-        <nav class="footer-links" aria-label="Footer-Navigation">
-          <ul>
-            <li><a href="#">Impressum</a></li>
-            <li><a href="#">Datenschutz</a></li>
-          </ul>
-        </nav>
-
+        <div class="footer-links">
+          <nav aria-label="Footer-Navigation">
+            <ul>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/ueber-mich/">Über mich</a></li>
+              <li><a href="/kontakt/">Kontakt</a></li>
+              <li><a href="/impressum/">Impressum</a></li>
+              <li><a href="/datenschutz/">Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-
-      <p class="footer-copy">
-        &copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten
-      </p>
+      <p class="footer-copy">&copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten</p>
     </div>
   </footer>
-  <!-- footer section end -->
 
-  <!-- ============================================================
-       MINIMAL JS: Nav shadow on scroll only
-  ============================================================ -->
   <script>
     (function () {
-      // Nav shadow on scroll
       var nav = document.getElementById('site-nav');
       if (nav) {
         window.addEventListener('scroll', function () {
-          if (window.scrollY > 8) {
-            nav.classList.add('scrolled');
-          } else {
-            nav.classList.remove('scrolled');
-          }
+          nav.classList.toggle('scrolled', window.scrollY > 8);
         }, { passive: true });
       }
-
-      // Scroll-triggered fade-in animations
       var fadeEls = document.querySelectorAll('.fade-in');
-      if (fadeEls.length && 'IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
           });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-        fadeEls.forEach(function (el) { observer.observe(el); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+        fadeEls.forEach(function (el) { io.observe(el); });
       } else {
-        // Fallback: show everything
         fadeEls.forEach(function (el) { el.classList.add('visible'); });
       }
     })();
