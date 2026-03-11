@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daniel Matriciani – Gründer-Coaching & Mindset. Für Menschen, die gründen wollen und sich selbst im Weg stehen." />
+  <title>Daniel Matriciani – Gründer-Coaching & Mindset</title>
+
+  <!-- Favicon Placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23254B5A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23F7F9FB' font-family='sans-serif'>D</text></svg>" />
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+  </style>
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-primary:     #254B5A;
+      --color-secondary:   #7F9A83;
+      --color-accent:      #C4693A;
+      --color-bg:          #F7F9FB;
+      --color-surface:     #D4E1E7;
+      --color-text:        #1E2328;
+      --color-text-light:  #4A5568;
+
+      --font-heading: 'Poppins', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --radius-card:  16px;
+      --shadow-soft:  0 4px 20px rgba(0, 0, 0, 0.07);
+      --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.13);
+
+      --section-pad: clamp(64px, 8vw, 100px);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.2;
+    }
+
+    h2 {
+      line-height: 1.3;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(20px, 5vw, 40px);
+      padding-right: clamp(20px, 5vw, 40px);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* CTA Button */
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus-visible {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .btn-cta:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    /* nav section start */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 64px;
+      background-color: var(--color-bg);
+      border-bottom: 1px solid rgba(37, 75, 90, 0.08);
+      display: flex;
+      align-items: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .site-nav.scrolled {
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo:hover {
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .nav-cta {
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--color-accent);
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .nav-cta:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+    /* nav section end */
+
+    /* ============================================================
+       SECTION 1: HERO
+    ============================================================ */
+    /* hero section start */
+    .section-hero {
+      background-color: var(--color-bg);
+      padding: var(--section-pad) 0;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-h1 .line-teal {
+      display: block;
+      color: var(--color-primary);
+    }
+
+    .hero-h1 .line-accent {
+      display: block;
+      color: var(--color-accent);
+    }
+
+    .hero-subtext {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--color-text-light);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-trust {
+      display: block;
+      margin-top: 0.875rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+    }
+    /* hero section end */
+
+    /* ============================================================
+       SECTION 2: PROBLEM
+    ============================================================ */
+    /* problem section start */
+    .section-problem {
+      background-color: var(--color-surface);
+      padding: var(--section-pad) 0;
+    }
+
+    .problem-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .problem-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .problem-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .problem-card-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .problem-card-headline {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .problem-card-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      line-height: 1.65;
+    }
+    /* problem section end */
+
+    /* ============================================================
+       SECTION 3: FRAMEWORK
+    ============================================================ */
+    /* framework section start */
+    .section-framework {
+      background-color: var(--color-bg);
+      padding: var(--section-pad) 0;
+    }
+
+    .framework-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .framework-intro {
+      font-style: italic;
+      color: var(--color-text-light);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.75;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 48px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background-color: var(--color-secondary);
+      border-radius: 2px;
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 2.75rem;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-badge {
+      position: absolute;
+      left: -48px;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.01em;
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .timeline-text {
+      color: var(--color-text-light);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+    /* framework section end */
+
+    /* ============================================================
+       SECTION 4: ÜBER MICH
+    ============================================================ */
+    /* about section start */
+    .section-about {
+      background-color: var(--color-primary);
+      padding: var(--section-pad) 0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    @media (max-width: 680px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .about-photo-wrap {
+        margin: 0 auto;
+      }
+    }
+
+    .about-photo-wrap {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: var(--color-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .about-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .about-photo-placeholder {
+      color: var(--color-bg);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    .about-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--color-bg);
+      margin-bottom: 1.25rem;
+    }
+
+    .about-copy {
+      color: rgba(247, 249, 251, 0.9);
+      font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
+      line-height: 1.75;
+    }
+
+    .about-copy p + p {
+      margin-top: 1rem;
+    }
+    /* about section end */
+
+    /* ============================================================
+       SECTION 5: BLOG
+    ============================================================ */
+    /* blog section start */
+    .section-blog {
+      background-color: var(--color-surface);
+      padding: var(--section-pad) 0;
+    }
+
+    .blog-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .blog-subtext {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 3rem;
+      color: var(--color-text-light);
+      line-height: 1.75;
+    }
+
+    .blog-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .blog-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .blog-card-tag {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+
+    .blog-card-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--color-primary);
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-card-teaser {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-card-link {
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: var(--color-accent);
+      text-decoration: none;
+      margin-top: auto;
+      transition: opacity 0.15s ease;
+    }
+
+    .blog-card-link:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
+    .blog-cta-wrap {
+      text-align: center;
+    }
+    /* blog section end */
+
+    /* ============================================================
+       SECTION 6: FOOTER
+    ============================================================ */
+    /* footer section start */
+    .site-footer {
+      background-color: var(--color-text);
+      padding: clamp(40px, 5vw, 64px) 0 32px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-links {
+        text-align: left;
+      }
+    }
+
+    .footer-brand {
+      color: rgba(247, 249, 251, 0.7);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .footer-brand-name {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: rgba(247, 249, 251, 0.9);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-links {
+      text-align: right;
+    }
+
+    .footer-links ul {
+      display: flex;
+      gap: 24px;
+      justify-content: flex-end;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 560px) {
+      .footer-links ul {
+        justify-content: flex-start;
+      }
+    }
+
+    .footer-links a {
+      color: var(--color-secondary);
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
+    .footer-copy {
+      border-top: 1px solid rgba(247, 249, 251, 0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: rgba(247, 249, 251, 0.4);
+      font-size: 0.8125rem;
+    }
+    /* footer section end */
+
+    /* ============================================================
+       ACCESSIBILITY: FOCUS STYLES
+    ============================================================ */
+    :focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    /* Skip to content */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 0 0 8px 0;
+      z-index: 200;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ============================================================
+       SCROLL-TRIGGERED NAV SHADOW (JS-free fallback via CSS)
+       We use a tiny inline script for this.
+    ============================================================ */
+
+    /* ============================================================
+       RESPONSIVE TWEAKS
+    ============================================================ */
+    @media (max-width: 480px) {
+      .btn-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .timeline {
+        padding-left: 44px;
+      }
+    }
+
+    /* ============================================================
+       PRINT STYLES
+    ============================================================ */
+    @media print {
+      .site-nav,
+      .skip-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Skip Navigation (Accessibility) -->
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <!-- nav section start -->
+  <nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Daniel Matriciani – Startseite">Daniel Matriciani</a>
+      <a href="#blog" class="nav-cta" aria-label="Zum Blog navigieren">→ Zum Blog</a>
+    </div>
+  </nav>
+  <!-- nav section end -->
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         SECTION 1: HERO
+    ============================================================ -->
+    <!-- hero section start -->
+    <section class="section-hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <h1 class="hero-h1" id="hero-heading">
+            <span class="line-teal">Du weißt, dass du gründen willst.<br>Du weißt nur nicht, warum du immer noch</span>
+            <span class="line-accent">nicht angefangen hast.</span>
+          </h1>
+          <p class="hero-subtext">
+            FBA. Dropshipping. Affiliate. Social Media. Irgendwas dazwischen.<br>
+            Du hast nicht das Problem, dass du keine Ideen hast.<br>
+            Du hast das Problem, dass du dich selbst blockierst –&nbsp;und es bisher noch nicht so direkt gesagt hast.
+          </p>
+          <a href="#blog" class="btn-cta">→ Zum Blog – Fang hier an.</a>
+          <span class="hero-trust">Kein Opt-in. Kein Pitch. Einfach Content.</span>
+        </div>
+      </div>
+    </section>
+    <!-- hero section end -->
+
+    <!-- ============================================================
+         SECTION 2: PROBLEM
+    ============================================================ -->
+    <!-- problem section start -->
+    <section class="section-problem" aria-labelledby="problem-heading">
+      <div class="container">
+        <h2 class="problem-h2" id="problem-heading">Das läuft gerade in deinem Kopf – sei mal ehrlich.</h2>
+        <div class="problem-cards" role="list">
+
+          <!-- Card 1 -->
+          <article class="problem-card" role="listitem">
+            <span class="problem-card-icon" aria-hidden="true">🔁</span>
+            <h3 class="problem-card-headline">„Ich fange an, sobald alles perfekt ist."</h3>
+            <p class="problem-card-text">Spoiler: Es wird nie perfekt. Perfektionismus ist nur Prokrastination mit besserem Ruf.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="problem-card" role="listitem">
+            <span class="problem-card-icon" aria-hidden="true">🎯</span>
+            <h3 class="problem-card-headline">„Ich weiß nicht, worauf ich mich fokussieren soll."</h3>
+            <p class="problem-card-text">Zu viele Optionen. Zu viele YouTube-Videos. Zu viele Menschen mit Meinung. Kein klarer nächster Schritt.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="problem-card" role="listitem">
+            <span class="problem-card-icon" aria-hidden="true">⚡</span>
+            <h3 class="problem-card-headline">„Ich will raus aus dem Hamsterrad – aber ich trau mich nicht."</h3>
+            <p class="problem-card-text">Nicht weil du zu dumm bist. Sondern weil du noch keine echte Entscheidung getroffen hast.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- problem section end -->
+
+    <!-- ============================================================
+         SECTION 3: FRAMEWORK
+    ============================================================ -->
+    <!-- framework section start -->
+    <section class="section-framework" aria-labelledby="framework-heading">
+      <div class="container">
+        <h2 class="framework-h2" id="framework-heading">Es gibt keinen Hack. Aber es gibt einen Weg.</h2>
+        <p class="framework-intro">
+          Ich hab nicht in einem Seminar gelernt, wie man aus Lähmung ins Handeln kommt.<br>
+          Ich hab's gelebt. Das hier ist das Ergebnis.
+        </p>
+
+        <ol class="timeline" aria-label="5-Schritte-Framework">
+
+          <li class="timeline-step">
+            <span class="timeline-badge" aria-hidden="true">01</span>
+            <h3 class="timeline-title">Entscheidung</h3>
+            <p class="timeline-text">Der Moment, in dem du aufhörst zu warten – und anfängst zu wählen. Nicht der perfekte Plan. Nur die Einsicht: So geht es nicht weiter.</p>
+          </li>
+
+          <li class="timeline-step">
+            <span class="timeline-badge" aria-hidden="true">02</span>
+            <h3 class="timeline-title">Fokus</h3>
+            <p class="timeline-text">Dein Kopf will alles auf einmal lösen. Das ist keine Stärke – das ist Überforderung. Ein Problem. Eine Handlung. Wiederholt.</p>
+          </li>
+
+          <li class="timeline-step">
+            <span class="timeline-badge" aria-hidden="true">03</span>
+            <h3 class="timeline-title">Ehrlichkeit</h3>
+            <p class="timeline-text">Nicht die Version, die erträglich ist. Das echte Problem. Solange du um den Kern herumredest, arbeitest du an der falschen Baustelle.</p>
+          </li>
+
+          <li class="timeline-step">
+            <span class="timeline-badge" aria-hidden="true">04</span>
+            <h3 class="timeline-title">Denken ändern</h3>
+            <p class="timeline-text">Taktiken ändern dein Verhalten für drei Wochen. Überzeugungen ändern dein Leben. Das Schwerste – und das Einzige, das wirklich hält.</p>
+          </li>
+
+          <li class="timeline-step">
+            <span class="timeline-badge" aria-hidden="true">05</span>
+            <h3 class="timeline-title">Klarheit &amp; Umsetzung</h3>
+            <p class="timeline-text">Wissen reicht nicht. Es braucht täglich eine Entscheidung. Nicht perfekt. Jeden Tag einen Schritt in die Richtung, die du gewählt hast.</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+    <!-- framework section end -->
+
+    <!-- ============================================================
+         SECTION 4: ÜBER MICH
+    ============================================================ -->
+    <!-- about section start -->
+    <section class="section-about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-inner">
+
+          <!-- Photo -->
+          <div class="about-photo-wrap" role="img" aria-label="Foto von Daniel Matriciani">
+            <span class="about-photo-placeholder" aria-hidden="true">Foto<br>Daniel</span>
+          </div>
+
+          <!-- Text -->
+          <div class="about-text">
+            <h2 class="about-h2" id="about-heading">Warum ich dir das sagen kann.</h2>
+            <div class="about-copy">
+              <p>Ich heiße Daniel Matriciani. Kaufmann, angehender Coach, und jemand, der seinen Tiefpunkt nicht in einer Sinnkrise auf einer Yogamatte hatte.</p>
+              <p>Ich hab mein ganzes Denken in einer Situation neu aufgebaut, in der ich buchstäblich nichts hatte – keine Freiheit, kein Netzwerk, keine Ressourcen außer meinem eigenen Kopf. Was dabei entstanden ist, ist kein Coaching-Lehrbuch. Es ist ein Framework, das unter maximalem Druck entstanden ist.</p>
+              <p>Heute baue ich daraus ein Unternehmen auf – parallel zur Ausbildung, von Rhens aus, mit KI als Werkzeug und mit dem Anspruch, ehrlich zu sein, auch wenn es unbequem wird.</p>
+              <p>Ich arbeite nicht mit jedem. Aber wenn du weißt, dass du es drauf hast – und einfach nicht von der Stelle kommst – dann bin ich vielleicht der Richtige.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+    <!-- ============================================================
+         SECTION 5: BLOG
+    ============================================================ -->
+    <!-- blog section start -->
+    <section class="section-blog" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <h2 class="blog-h2" id="blog-heading">Fang mit dem Blog an.</h2>
+        <p class="blog-subtext">
+          Kein Opt-in. Kein Funnel. Kein Pitch.<br>
+          Nur konkreter Content für Menschen, die gründen wollen und sich selbst im Weg stehen.<br>
+          Perfektionismus. Fokus. Entscheidungen. KI als Werkzeug. Und was ich selbst gerade lerne.
+        </p>
+
+        <div class="blog-cards" role="list">
+
+          <!-- Blog Card 1 -->
+          <article class="blog-card" role="listitem">
+            <span class="blog-card-tag" aria-label="Kategorie: Mindset">Mindset</span>
+            <h3 class="blog-card-title">Warum Perfektionismus keine Tugend ist</h3>
+            <p class="blog-card-teaser">Du wartest auf den richtigen Moment. Spoiler: Er kommt nicht.</p>
+            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Warum Perfektionismus keine Tugend ist">Weiterlesen →</a>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article class="blog-card" role="listitem">
+            <span class="blog-card-tag" aria-label="Kategorie: Fokus">Fokus</span>
+            <h3 class="blog-card-title">Das eine Problem, das du wirklich lösen musst</h3>
+            <p class="blog-card-teaser">Nicht fünf Baustellen. Eine. Hier ist wie du sie findest.</p>
+            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Das eine Problem, das du wirklich lösen musst">Weiterlesen →</a>
+          </article>
+
+          <!-- Blog Card 3 -->
+          <article class="blog-card" role="listitem">
+            <span class="blog-card-tag" aria-label="Kategorie: Entscheidung">Entscheidung</span>
+            <h3 class="blog-card-title">Der Unterschied zwischen Nachdenken und Entscheiden</h3>
+            <p class="blog-card-teaser">Die meisten Gründer denken nicht zu wenig. Sie entscheiden zu wenig.</p>
+            <a href="#" class="blog-card-link" aria-label="Artikel lesen: Der Unterschied zwischen Nachdenken und Entscheiden">Weiterlesen →</a>
+          </article>
+
+        </div>
+
+        <div class="blog-cta-wrap">
+          <a href="#" class="btn-cta" aria-label="Alle Blog-Artikel lesen">→ Alle Artikel lesen</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- blog section end -->
+
+  </main>
+
+  <!-- ============================================================
+       SECTION 6: FOOTER
+  ============================================================ -->
+  <!-- footer section start -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <span class="footer-brand-name">Daniel Matriciani</span>
+          Gründer-Coaching &amp; Mindset<br>
+          Rhens, Deutschland
+        </div>
+
+        <!-- Links -->
+        <nav class="footer-links" aria-label="Footer-Navigation">
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p class="footer-copy">
+        &copy; 2026 Daniel Matriciani &middot; Alle Rechte vorbehalten
+      </p>
+    </div>
+  </footer>
+  <!-- footer section end -->
+
+  <!-- ============================================================
+       MINIMAL JS: Nav shadow on scroll only
+  ============================================================ -->
+  <script>
+    (function () {
+      var nav = document.getElementById('site-nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 8) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
